@@ -236,6 +236,11 @@ header {
 
 } 
 
+.home-header {
+  width: fit-content;
+  border: none;
+}
+
 .course-title {
   font: inherit;
   background: none;
@@ -372,7 +377,7 @@ header {
 }
 
 
-a:hover {
+.session-row > a:hover {
   background-color: var(--color-highlight);
   box-shadow: 0 0 1em 0.75em rgba(245, 245, 245, 1) inset;
   -moz-box-shadow: 0 0 1em 0.75em rgba(245, 245, 245, 1) inset;
