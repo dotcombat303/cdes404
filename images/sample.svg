@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360">
-  <rect width="600" height="360" fill="#e8e8e0"/>
-  <line x1="0" y1="0" x2="600" y2="360" stroke="#000" stroke-width="1"/>
-  <line x1="600" y1="0" x2="0" y2="360" stroke="#000" stroke-width="1"/>
-  <rect x="0.5" y="0.5" width="599" height="359" fill="none" stroke="#000" stroke-width="2"/>
-  <text x="300" y="185" font-family="monospace" font-size="16" fill="#000" text-anchor="middle">[ FIG. 01 — REPLACE WITH IMAGE ]</text>
-</svg>
