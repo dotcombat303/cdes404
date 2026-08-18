@@ -1,0 +1,526 @@
+/* =====================================================================
+   RESET + DESIGN TOKENS
+   ===================================================================== */
+
+:root {
+  color-scheme: light;
+  font-family: "Geist Mono", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  font-weight: var(--font-weight-light);
+
+
+ /* font styles */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  --font-style-italic: italic;
+
+
+
+  /* fluid typography */
+  --font-size-base: clamp(0.85rem, 0.9vw + 0.35rem, 0.95rem);
+  --font-size-sm: clamp(0.75rem, 0.7vw + 0.3rem, 0.85rem);
+  --font-size-md: clamp(0.95rem, 1vw + 0.45rem, 1.05rem);
+  --font-size-lg: clamp(1.05rem, 1.3vw + 0.55rem, 1.25rem);
+  --font-size-xl: clamp(1.3rem, 2vw + 0.7rem, 1.7rem);
+  --font-size-xxl: clamp(1.7rem, 2.8vw + 0.9rem, 2.3rem);
+
+  /* spacing scale */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-xxl: 4.5rem;
+
+  /* colors */
+  --color-bg: whitesmoke;
+  --color-surface: white;
+  --color-border: blue;
+  --color-foreground: #black;
+  --color-muted: #6a6255;
+  --color-accent: #6c5ce7;
+  --color-accent-soft: #e7e5ff;
+  --color-highlight: #ccff00;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: inherit;
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height, 1.5);
+  min-height: 100%;
+  background: var(--color-bg);
+  color: var(--color-foreground);
+}
+
+body,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+blockquote,
+pre,
+table {
+  margin: 0;
+  font-weight: normal;
+  font-size: var(--font-size-base);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+figcaption {
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+  margin-top: 0.5rem;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  background: var(--color-bg);
+  color: var(--color-foreground);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) transparent;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) transparent;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-highlight);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  border-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+.article-text > a:link {
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+  text-decoration-thickness: 0.5px;
+  text-decoration-color: var(--color-accent);
+}
+
+a:hover {
+  background-color: var(--color-highlight);
+  transition: background-color 0.3s ease-in;
+}
+
+
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* =====================================================================
+   STRUCTURAL CSS ONLY
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   PAGE WRAPPER
+   --------------------------------------------------------------------- */
+.wrap {
+  max-width: 100%;
+  padding: var(--space-xs) 0;
+}
+
+
+/* ---------------------------------------------------------------------
+   Spacing layout
+   --------------------------------------------------------------------- */
+.session-list, article {
+  padding:0;
+}
+
+
+
+/* ---------------------------------------------------------------------
+   HEADER / COURSE TITLE + ABOUT POPUP
+   .course-title is a <button> on the home page (toggles the popup)
+   and a plain <a> on session pages (links home)
+   --------------------------------------------------------------------- */
+
+header {
+  position: sticky;
+  top: 0;
+  height: 2.5rem;
+  margin: 0 var(--space-xs);
+  padding: var(--space-xs) var(--space-xs);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+
+} 
+
+.course-title {
+  font: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  display: inline-block;
+  padding-bottom: 0;
+  color: var( --color-accent);
+  line-height: 1;
+}
+
+.course-title:hover {
+  background-color: var(--color-highlight);
+  transition: background-color 0.3s ease-in;
+}
+
+.about-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-size: var(--font-size-xs);
+  line-height: 1;
+  padding: 0.25rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  background: none;
+  box-shadow: none;
+  border-width: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+
+}
+
+.about-icon:hover {
+  background-color: var(--color-highlight);
+}
+
+.about-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+}
+
+.about-popup[hidden] {
+  display: none;
+}
+
+.about-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.about-popup__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(42rem, calc(100vw - 2rem));
+  max-height: 80vh;
+  overflow: auto;
+  margin: 4rem auto 0;
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.02);
+}
+
+.about-popup__close {
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  font-size: 0.9rem;
+  line-height: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.about-popup__content {
+  margin-top: var(--space-sm);
+}
+
+.about-popup__content p,
+.about-page p,
+.article-text p {
+  margin: 0 0 1em;
+}
+
+.about-popup__content p:last-child,
+.about-page p:last-child,
+.article-text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-page {
+  margin: var(--space-xs);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  max-width: 50rem;
+}
+
+
+/* ---------------------------------------------------------------------
+   SESSION LIST (home page)
+   .session-row = one <li> per session. .s-date / .s-title / .s-tag
+   are inline pieces inside the row — currently a flex row so date,
+   title, and the optional [ASSIGNMENT]/[EXERCISE] tag sit on one
+   line.
+   --------------------------------------------------------------------- */
+
+.session-list {
+  margin: var(--space-xs);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  max-width: 50rem;
+}
+
+.session-list ol {
+  list-style: none;
+  margin: 0;
+}
+
+.session-row a {
+  padding: var(--space-xs) 0;
+  display: flex;
+  gap: 0.125rem;
+  align-items: baseline;
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+
+a:hover {
+  background-color: var(--color-highlight);
+  box-shadow: 0 0 1em 0.75em rgba(245, 245, 245, 1) inset;
+  -moz-box-shadow: 0 0 1em 0.75em rgba(245, 245, 245, 1) inset;
+  -webkit-box-shadow: 0 0 1em 0.75em rgba(245, 245, 245, 1) inset;
+  transition: background-color 0.2s ease-in, box-shadow 0.1s ease-in;
+}
+
+.session-row .s-date {
+  flex: 0 0 6.5rem; /* fixed-width date column so titles align */
+}
+
+.session-row .s-title {
+  flex: 1;
+}
+
+/* Hooks for styling session vs. assignment vs. exercise rows
+   differently. */
+.session-row.kind-session   { }
+.session-row.kind-assignment { }
+.session-row.kind-exercise   { }
+
+
+/* ---------------------------------------------------------------------
+   SESSION ARTICLE PAGE
+   .session-head = date / optional tag / title block above the body.
+
+   Hooks for styling assignment/exercise session pages differently
+   from a plain session.
+   --------------------------------------------------------------------- */
+.session.kind-session   { }
+.session.kind-assignment { }
+.session.kind-exercise   { }
+
+.session {
+  padding: var(--space-xs);
+}
+
+
+.session-head {
+  border: 1px solid var(--color-border);
+  padding: var(--space-md);
+}
+
+.session-head h1 {
+  font-size: var(--font-size-md);
+}
+
+
+/* ---------------------------------------------------------------------
+   THE 3-COLUMN BODY LAYOUT
+   This is the one part of the CSS that's doing real structural work:
+   .session-body is a 2-column grid — main text (2fr) + references
+   sidebar (1fr). .article-text then splits itself into 2 flowing
+   columns via CSS multi-column, so the "3 columns" come from
+   2 (text) + 1 (sidebar), not 3 manually-written columns of markup.
+
+   Adjust the fr ratio, column-count, or gap freely — just keep the
+   grid-template-columns / column-count declarations if you want to
+   keep this behavior.
+   --------------------------------------------------------------------- */
+
+
+.session-body {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding-top: var(--space-xs);
+}
+
+.article-text {
+  column-count: 1;
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-text img,
+.article-text svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.article-text iframe#pcpaint {
+  display: block;
+  height: auto;
+  aspect-ratio: 560 / 384;
+  max-width: 100%;
+}
+
+.refs-sidebar {
+  position: sticky;
+  top: 2.5rem; /* keeps references visible while scrolling long articles */
+  padding: var(--space-md) 0;
+
+}
+
+.refs-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.refs-category {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+
+}
+
+.refs-category + .refs-category {
+  margin-top: 1.5rem;
+}
+
+.refs-sidebar a::after {
+  content: " ↗";
+}
+
+.refs-label {
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.refs-category li {
+  margin-bottom: 0.5rem;
+}
+
+/* ---------------------------------------------------------------------
+   SMALL SCREENS
+   Below 640px, collapse the 2-column grid and the multi-column text
+   down to a single column, and un-stick the sidebar so it just flows
+   below the article instead of overlapping on narrow viewports.
+   --------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .session-body {
+    grid-template-columns: 1fr;
+  }
+  .article-text {
+    column-count: 1;
+  }
+  .refs-sidebar {
+    position: static;
+  }
+  .session-row a {
+    flex-wrap: wrap;
+  }
+}

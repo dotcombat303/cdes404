@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.164.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CDES404 — Fundamentals of Interaction Design</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+<main class="wrap">
+<header class="site-header">
+  <h1 class="course-title">
+    CDES404
+  </h1>
+  <button class="about-icon" type="button" aria-label="About this course" title="About this course" data-about-toggle>i</button>
+  
+</header>
+
+  <div class="about-popup" id="about-popup" hidden>
+    <div class="about-popup__backdrop" data-about-close></div>
+    <div class="about-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="about-popup-title">
+      <button class="about-popup__close" type="button" aria-label="Close about popup" data-about-close>×</button>
+      <div class="about-popup__content">
+        
+          <p>CDES404</p>
+<p><em>IxD: Fundamentals of Interaction Design</em> — a 15-week course for fifth-semester Interaction Design specialisation track students of the B.Des Communication Design program at Vidyashilp University, Bangalore.</p>
+<p>August 05 – November 18, 2026.</p>
+<p>Meets every Wednesday from 9am to 3pm.</p>
+
+        
+      </div>
+    </div>
+  </div>
+
+  <nav class="session-list">
+    <ol>
+      
+      
+      <li class="session-row kind-session">
+        <a href="/sessions/05-08-2026/">
+          <span class="s-date">Aug 5</span>
+          <span class="s-title">First Contact</span>
+        </a>
+      </li>
+      
+      <li class="session-row kind-session">
+        <a href="/sessions/12-08-2026/">
+          <span class="s-date">Aug 12</span>
+          <span class="s-title">Fundamentals, with Caveats</span>
+        </a>
+      </li>
+      
+      <li class="session-row kind-session">
+        <a href="/sessions/19-08-2026/">
+          <span class="s-date">Aug 19</span>
+          <span class="s-title">Seven Stages of Action</span>
+        </a>
+      </li>
+      
+    </ol>
+  </nav>
+</main>
+
+<script>
+  const toggle = document.querySelector('[data-about-toggle]');
+  const popup = document.getElementById('about-popup');
+  const closeButtons = document.querySelectorAll('[data-about-close]');
+
+  if (toggle && popup) {
+    const openPopup = () => {
+      popup.hidden = false;
+      document.body.classList.add('modal-open');
+    };
+
+    const closePopup = () => {
+      popup.hidden = true;
+      document.body.classList.remove('modal-open');
+    };
+
+    toggle.addEventListener('click', openPopup);
+    closeButtons.forEach((button) => button.addEventListener('click', closePopup));
+    popup.addEventListener('click', (event) => {
+      if (event.target === popup || event.target.classList.contains('about-popup__backdrop')) {
+        closePopup();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !popup.hidden) {
+        closePopup();
+      }
+    });
+  }
+</script>
+
+  <script src="/js/site.js"></script>
+</body>
+</html>
